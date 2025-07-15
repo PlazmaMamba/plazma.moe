@@ -1,0 +1,2 @@
+# plazma.moe
+my website
