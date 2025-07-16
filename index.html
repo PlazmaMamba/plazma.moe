@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive 3D Parallax Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div class="content">Hello</div>
+        
+        <!-- Background layers (furthest to closest) -->
+        <img src="images/background.png" data-speedx="0.3" data-speedy="0.3" class="parallax bg-img">
+        <img src="images/triangle_cliff.png" data-speedx="0.3" data-speedy="0.3" class="parallax triangle_cliff">
+        <img src="images/distant_island.png" class="parallax distant_island" data-speedx="0.27" data-speedy="0.27">
+        <img src="images/far_island.png" class="parallax far_island" data-speedx="0.2" data-speedy="0.2">
+        <img src="images/distant_hill.png" class="parallax distant_hill" data-speedx="0.27" data-speedy="0.27">
+        <img src="images/distant_sub_hill.png" class="parallax distant_sub_hill" data-speedx="0.27" data-speedy="0.27">
+        <img src="images/far_fog.png" class="parallax far_fog" data-speedx="0.1" data-speedy="0.1">
+        <img src="images/far_left_sub_cliff.png" class="parallax far_left_sub_cliff" data-speedx="0.22" data-speedy="0.22">
+        <img src="images/far_left_cliff.png" class="parallax far_left_cliff" data-speedx="0.2" data-speedy="0.2">
+        <img src="images/left_fog.png" class="parallax left_fog" data-speedx="0.11" data-speedy="0.11">
+        <img src="images/right_cliff.png" class="parallax right_cliff" data-speedx="0.25" data-speedy="0.25">
+        <img src="images/right_fog.png" class="parallax right_fog" data-speedx="0.2" data-speedy="0.2">
+        <img src="images/left_cliff.png" class="parallax left_cliff" data-speedx="0.1" data-speedy="0.1">
+        <img src="images/rock_center_right.png" class="parallax rock_center_right" data-speedx="0.3" data-speedy="0.3">
+        <img src="images/rock_center_left.png" class="parallax rock_center_left" data-speedx="0.3" data-speedy="0.3">
+        <img src="images/cloud_center_rocks.png" class="parallax cloud_center_rocks" data-speedx="0.3" data-speedy="0.3">
+        <img src="images/center_fog.png" class="parallax center_fog" data-speedx="0.05" data-speedy="0.05">
+        <img src="images/coast_right_fartest.png" class="parallax coast_right_fartest" data-speedx="0.33" data-speedy="0.33">
+        <img src="images/coast_right_far.png" class="parallax coast_right_far" data-speedx="0.3" data-speedy="0.3">
+        <img src="images/coast_right_medium.png" class="parallax coast_right_medium" data-speedx="0.28" data-speedy="0.28">
+        <img src="images/coast_right_close.png" class="parallax coast_right_close" data-speedx="0.25" data-speedy="0.25">
+        <img src="images/middle_fog.png" class="parallax middle_fog" data-speedx="0.15" data-speedy="0.15">
+        <img src="images/left_rock_bottom.png" class="parallax left_rock_bottom" data-speedx="0.05" data-speedy="0.05">
+        <img src="images/front_fog.png" class="parallax front_fog" data-speedx="0.01" data-speedy="0.01">
+        
+        <!-- Vignette effect on top -->
+        <div class="vignette"></div>
+    </main>
+
+    <script src="js/gsap.min.js"></script>
+    <script src="app.js" defer></script>
+</body>
+</html>
