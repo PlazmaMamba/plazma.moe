@@ -5,102 +5,610 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive 3D Parallax Website</title>
+    <title>Plazma Mamba - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-
 <body>
-    <div class="overlay"></div>
-    <div class="loading-container">
-        <div class="loading-text">Loading</div>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+    <!-- Loading Animation -->
+    <div class="loading-overlay">
+        <div class="fog"></div>
+        <div class="fog" style="animation-delay: -2.5s; opacity: 0.5;"></div>
+        <div class="fog" style="animation-delay: -1s; transform: scale(0.8); opacity: 0.3;"></div>
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="loading-content">
         </div>
     </div>
-    <!-- Circular Mask -->
-    <div class="circular-mask">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-            <defs>
-                <mask id="circleMask">
-                    <rect width="100" height="100" fill="white" />
-                    <circle id="maskCircle" cx="50" cy="50" r="0" fill="black" />
-                </mask>
-            </defs>
-            <rect width="100" height="100" fill="black" mask="url(#circleMask)" />
-        </svg>
-    </div>
 
-    <main>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Original Parallax Background -->
+        <div class="parallax-background">
+            <!-- Background layers (furthest to closest) -->
+            <img src="images/background.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax bg-img">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 100%;">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 200%;">
 
+            <!-- Parallax Text positioned in the deepest background layer -->
+            <div class="parallax-text parallax" data-speedx="0.18" data-speedy="0.08" data-rotatespeed="0.08">
+                <h2>Welcome to My Portfolio</h2>
+                <h1>Plazma Mamba</h1>
+            </div>
 
-        <!-- Background layers (furthest to closest) -->
-        <img src="images/background.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
-            class="parallax bg-img">
-        <img src="images/background.png" class=" bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
-            style="left: 100%;">
-        <img src="images/background.png" class=" bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
-            style="left: 200%;">
+            <img src="images/triangle_cliff.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax triangle_cliff">
+            <img src="images/distant_island.png" class="parallax distant_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_island.png" class="parallax far_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_hill.png" class="parallax distant_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_sub_hill.png" class="parallax distant_sub_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_fog.png" class="parallax far_fog" data-speedx="0.25" data-speedy="0.13"
+                data-rotatespeed="0.13">
+            <img src="images/far_left_sub_cliff.png" class="parallax far_left_sub_cliff" data-speedx="0.26"
+                data-speedy="0.11" data-rotatespeed="0.11">
+            <img src="images/far_left_cliff.png" class="parallax far_left_cliff" data-speedx="0.23" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/left_fog.png" class="parallax left_fog" data-speedx="0.1" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/right_cliff.png" class="parallax right_cliff" data-speedx="0.25" data-speedy="0.125"
+                data-rotatespeed="0.125">
+            <img src="images/right_fog.png" class="parallax right_fog" data-speedx="0.19" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/coast_right_fartest.png" class="parallax coast_right_fartest" data-speedx="0.33"
+                data-speedy="0.165" data-rotatespeed="0.165">
+            <img src="images/left_cliff.png" class="parallax left_cliff" data-speedx="0.25" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/rock_center_right.png" class="parallax rock_center_right" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/rock_center_left.png" class="parallax rock_center_left" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/cloud_center_rocks.png" class="parallax cloud_center_rocks" data-speedx="0.22"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/center_fog.png" class="parallax center_fog" data-speedx="0.13" data-speedy="0.025"
+                data-rotatespeed="0.025">
+            <img src="images/coast_right_far.png" class="parallax coast_right_far" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/coast_right_medium.png" class="parallax coast_right_medium" data-speedx="0.28"
+                data-speedy="0.14" data-rotatespeed="0.14">
+            <img src="images/coast_right_close.png" class="parallax coast_right_close" data-speedx="0.25"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/middle_fog.png" class="parallax middle_fog" data-speedx="0.2" data-speedy="0.075"
+                data-rotatespeed="0.075">
+            <img src="images/left_rock_bottom.png" class="parallax left_rock_bottom" data-speedx="0.1" data-speedy="0.0025"
+                data-rotatespeed="0.0025">
+            <img src="images/front_fog.png" class="parallax front_fog" data-speedx="0.15" data-speedy="0.05"
+                data-rotatespeed="0.05">
 
-        <img src="images/triangle_cliff.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
-            class="parallax triangle_cliff">
-        <img src="images/distant_island.png" class="parallax distant_island" data-speedx="0.3" data-speedy="0.15"
-            data-rotatespeed="0.15">
-        <img src="images/far_island.png" class="parallax far_island" data-speedx="0.3" data-speedy="0.15"
-            data-rotatespeed="0.15">
-        <img src="images/distant_hill.png" class="parallax distant_hill" data-speedx="0.27" data-speedy="0.15"
-            data-rotatespeed="0.15">
-        <img src="images/distant_sub_hill.png" class="parallax distant_sub_hill" data-speedx="0.27" data-speedy="0.15"
-            data-rotatespeed="0.15">
-        <img src="images/far_fog.png" class="parallax far_fog" data-speedx="0.25" data-speedy="0.13"
-            data-rotatespeed="0.13">
-        <img src="images/far_left_sub_cliff.png" class="parallax far_left_sub_cliff" data-speedx="0.26"
-            data-speedy="0.11" data-rotatespeed="0.11">
-        <img src="images/far_left_cliff.png" class="parallax far_left_cliff" data-speedx="0.23" data-speedy="0.1"
-            data-rotatespeed="0.1">
-        <img src="images/left_fog.png" class="parallax left_fog" data-speedx="0.1" data-speedy="0.05"
-            data-rotatespeed="0.05">
-        <img src="images/right_cliff.png" class="parallax right_cliff" data-speedx="0.25" data-speedy="0.125"
-            data-rotatespeed="0.125">
-        <img src="images/right_fog.png" class="parallax right_fog" data-speedx="0.19" data-speedy="0.1"
-            data-rotatespeed="0.1">
-        <img src="images/coast_right_fartest.png" class="parallax coast_right_fartest" data-speedx="0.33"
-            data-speedy="0.165" data-rotatespeed="0.165">
-        <div class="text parallax">
-            <h2>Work In Progress</h2>
-            <h1>Welcome</h1>
+            <!-- Atmospheric overlay -->
+            <div class="atmospheric-overlay"></div>
+            <div class="vignette-overlay"></div>
         </div>
-        <img src="images/left_cliff.png" class="parallax left_cliff" data-speedx="0.25" data-speedy="0.05"
-            data-rotatespeed="0.05">
-        <img src="images/rock_center_right.png" class="parallax rock_center_right" data-speedx="0.2" data-speedy="0.1"
-            data-rotatespeed="0.1">
-        <img src="images/rock_center_left.png" class="parallax rock_center_left" data-speedx="0.2" data-speedy="0.1"
-            data-rotatespeed="0.1">
-        <img src="images/cloud_center_rocks.png" class="parallax cloud_center_rocks" data-speedx="0.22"
-            data-speedy="0.125" data-rotatespeed="0.125">
-        <img src="images/center_fog.png" class="parallax center_fog" data-speedx="0.13" data-speedy="0.025"
-            data-rotatespeed="0.025">
 
+        <!-- Floating orbs for additional depth -->
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
 
-        
-        <img src="images/coast_right_far.png" class="parallax coast_right_far" data-speedx="0.3" data-speedy="0.15"
-            data-rotatespeed="0.15">
-        <img src="images/coast_right_medium.png" class="parallax coast_right_medium" data-speedx="0.28"
-            data-speedy="0.14" data-rotatespeed="0.14">
-        <img src="images/coast_right_close.png" class="parallax coast_right_close" data-speedx="0.25"
-            data-speedy="0.125" data-rotatespeed="0.125">
-        <img src="images/middle_fog.png" class="parallax middle_fog" data-speedx="0.2" data-speedy="0.075"
-            data-rotatespeed="0.075">
-        <img src="images/left_rock_bottom.png" class="parallax left_rock_bottom" data-speedx="0.1" data-speedy="0.0025"
-            data-rotatespeed="0.0025">
-        <img src="images/front_fog.png" class="parallax front_fog" data-speedx="0.15" data-speedy="0.05"
-            data-rotatespeed="0.05">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="brand-text">PM</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
 
-        <!-- Vignette effect on top -->
-        <div class="vignette"></div>
-    </main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-card glass-panel">
+                    <div class="hero-avatar">
+                        <div class="avatar-ring"></div>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Plazma Mamba" class="avatar-img">
+                    </div>
+                    <h1 class="hero-title">Plazma Mamba</h1>
+                    <p class="hero-subtitle">Creative Developer & Digital Artist</p>
+                    <p class="hero-description">Bringing imagination to life through code, design, and cutting-edge technology</p>
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn btn-primary">View Projects</a>
+                        <a href="about.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick About Card Section -->
+        <section class="quick-about-section">
+            <div class="section-container">
+                <div class="quick-about-grid">
+                    <!-- Profile Card -->
+                    <div class="profile-card glass-panel">
+                        <div class="profile-image-container">
+                            <div class="profile-image-ring">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Plazma Mamba" class="profile-image">
+                            </div>
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text">Available for Hire</span>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h3 class="profile-name">Plazma Mamba</h3>
+                            <p class="profile-title">Software Engineering Student</p>
+                            <div class="education-info">
+                                <div class="education-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div class="education-details">
+                                        <span class="university">McGill University</span>
+                                        <span class="degree">Software Engineering + AI Minor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <span class="stat-value">15+</span>
+                                    <span class="stat-label">Languages</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-value">25+</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-value">3+</span>
+                                    <span class="stat-label">Years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages & Technologies Card -->
+                    <div class="languages-card glass-panel">
+                        <div class="languages-header">
+                            <h3>Programming Languages & Technologies</h3>
+                            <p>Comprehensive skill set for modern software development</p>
+                        </div>
+                        
+                        <div class="languages-grid">
+                            <div class="language-category">
+                                <h4>Frontend</h4>
+                                <div class="language-tags">
+                                    <span class="language-tag html">HTML5</span>
+                                    <span class="language-tag css">CSS3</span>
+                                    <span class="language-tag js">JavaScript</span>
+                                    <span class="language-tag ts">TypeScript</span>
+                                    <span class="language-tag react">React</span>
+                                    <span class="language-tag vue">Vue.js</span>
+                                    <span class="language-tag sass">Sass/SCSS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="language-category">
+                                <h4>Backend</h4>
+                                <div class="language-tags">
+                                    <span class="language-tag node">Node.js</span>
+                                    <span class="language-tag python">Python</span>
+                                    <span class="language-tag java">Java</span>
+                                    <span class="language-tag csharp">C#</span>
+                                    <span class="language-tag php">PHP</span>
+                                    <span class="language-tag go">Go</span>
+                                </div>
+                            </div>
+                            
+                            <div class="language-category">
+                                <h4>Database & Cloud</h4>
+                                <div class="language-tags">
+                                    <span class="language-tag mongodb">MongoDB</span>
+                                    <span class="language-tag postgresql">PostgreSQL</span>
+                                    <span class="language-tag mysql">MySQL</span>
+                                    <span class="language-tag redis">Redis</span>
+                                    <span class="language-tag aws">AWS</span>
+                                    <span class="language-tag docker">Docker</span>
+                                </div>
+                            </div>
+                            
+                            <div class="language-category">
+                                <h4>AI & Data Science</h4>
+                                <div class="language-tags">
+                                    <span class="language-tag tensorflow">TensorFlow</span>
+                                    <span class="language-tag pytorch">PyTorch</span>
+                                    <span class="language-tag pandas">Pandas</span>
+                                    <span class="language-tag numpy">NumPy</span>
+                                    <span class="language-tag scikit">Scikit-learn</span>
+                                </div>
+                            </div>
+                            
+                            <div class="language-category">
+                                <h4>Tools & Others</h4>
+                                <div class="language-tags">
+                                    <span class="language-tag git">Git</span>
+                                    <span class="language-tag linux">Linux</span>
+                                    <span class="language-tag figma">Figma</span>
+                                    <span class="language-tag vscode">VS Code</span>
+                                    <span class="language-tag webpack">Webpack</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="languages-footer">
+                            <a href="skills.html" class="view-all-link">
+                                <span>View Detailed Skills</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Highlights Section -->
+        <section class="highlights-section">
+            <div class="section-container">
+                <div class="highlights-grid">
+                    <div class="highlight-card glass-panel">
+                        <div class="highlight-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Latest Project</h3>
+                            <p>Vision UI System - A comprehensive design system inspired by Apple's Vision OS</p>
+                            <a href="projects.html" class="highlight-link">Explore Projects <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-panel">
+                        <div class="highlight-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Open Source</h3>
+                            <p>Contributing to the developer community with innovative solutions and tools</p>
+                            <a href="#" class="highlight-link">View GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-panel">
+                        <div class="highlight-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Recent Achievement</h3>
+                            <p>React Developer Certification from Meta - Mastering modern development patterns</p>
+                            <a href="skills.html" class="highlight-link">View Skills <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card glass-panel">
+                        <div class="highlight-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h3>Available for Hire</h3>
+                            <p>Ready to take on exciting new projects and collaborate on innovative solutions</p>
+                            <a href="contact.html" class="highlight-link">Get in Touch <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-card glass-panel">
+                        <div class="card-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Who I Am</h3>
+                        <p>Passionate full-stack developer with expertise in modern web technologies. I love creating intuitive user experiences and robust backend solutions.</p>
+                    </div>
+                    <div class="about-card glass-panel">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>What I Do</h3>
+                        <p>I design and develop web applications, create stunning user interfaces, and build scalable backend systems using cutting-edge technologies.</p>
+                    </div>
+                    <div class="about-card glass-panel">
+                        <div class="card-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h3>My Goal</h3>
+                        <p>To create digital solutions that make a difference, combining beautiful design with powerful functionality to solve real-world problems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="E-Commerce Platform">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Modern e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Analytics Dashboard">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Analytics Dashboard</h3>
+                            <p>Real-time data visualization dashboard with interactive charts, filters, and responsive design for business intelligence.</p>
+                            <div class="project-tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">D3.js</span>
+                                <span class="tag">Express</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glass-panel">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&h=250&fit=crop" alt="Social Media App">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Social Media App</h3>
+                            <p>Full-featured social platform with real-time messaging, photo sharing, and advanced user engagement features.</p>
+                            <div class="project-tags">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Socket.io</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Frontend</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">React.js</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">TypeScript</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">CSS3/Sass</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-server"></i>
+                            <h3>Backend</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="82"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">PostgreSQL</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category glass-panel">
+                        <div class="category-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Tools & Others</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-name">Git</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Docker</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">AWS</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Figma</span>
+                                <div class="skill-level">
+                                    <div class="skill-progress" data-level="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info glass-panel">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always open to discussing new opportunities, interesting projects, or just having a friendly chat about technology.</p>
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>plazma.mamba@email.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Digital Realm</span>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form glass-panel">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Plazma Mamba. All rights reserved.</p>
+                <p>Made with ❤️ and digital magic</p>
+            </div>
+        </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="app.js" defer></script>
 </body>
 
