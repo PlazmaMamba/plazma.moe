@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Plazma Mamba</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero-content {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-hero-card {
+            padding: 80px 60px;
+            animation: slideUp 1s var(--transition-spring) 0.5s both;
+        }
+
+        .about-hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .about-hero-description {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .journey-section {
+            padding: 120px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--gradient-primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            animation: slideUp 0.8s var(--transition-spring) both;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            animation-delay: 0.4s;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 32px;
+            z-index: 1;
+            border: 3px solid var(--primary-bg);
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -30px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -30px;
+        }
+
+        .timeline-content {
+            padding: 32px;
+            position: relative;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .expertise-card {
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: var(--gradient-primary);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .expertise-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .expertise-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .personal-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            padding: 80px 60px;
+            margin: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .personal-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        .personal-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .fun-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .fact-item {
+            text-align: center;
+        }
+
+        .fact-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .fact-label {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero-card {
+                padding: 60px 40px;
+            }
+
+            .about-hero-title {
+                font-size: 36px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 20px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0%;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+
+            .timeline-item::after {
+                left: 21px !important;
+            }
+
+            .personal-section {
+                padding: 60px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-overlay">
+        <div class="fog"></div>
+        <div class="fog" style="animation-delay: -2.5s; opacity: 0.5;"></div>
+        <div class="fog" style="animation-delay: -1s; transform: scale(0.8); opacity: 0.3;"></div>
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="loading-content">
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Parallax Background -->
+        <div class="parallax-background">
+            <img src="images/background.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax bg-img">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 100%;">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 200%;">
+
+            <img src="images/triangle_cliff.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax triangle_cliff">
+            <img src="images/distant_island.png" class="parallax distant_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_island.png" class="parallax far_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_hill.png" class="parallax distant_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_sub_hill.png" class="parallax distant_sub_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_fog.png" class="parallax far_fog" data-speedx="0.25" data-speedy="0.13"
+                data-rotatespeed="0.13">
+            <img src="images/far_left_sub_cliff.png" class="parallax far_left_sub_cliff" data-speedx="0.26"
+                data-speedy="0.11" data-rotatespeed="0.11">
+            <img src="images/far_left_cliff.png" class="parallax far_left_cliff" data-speedx="0.23" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/left_fog.png" class="parallax left_fog" data-speedx="0.1" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/right_cliff.png" class="parallax right_cliff" data-speedx="0.25" data-speedy="0.125"
+                data-rotatespeed="0.125">
+            <img src="images/right_fog.png" class="parallax right_fog" data-speedx="0.19" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/coast_right_fartest.png" class="parallax coast_right_fartest" data-speedx="0.33"
+                data-speedy="0.165" data-rotatespeed="0.165">
+            <img src="images/left_cliff.png" class="parallax left_cliff" data-speedx="0.25" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/rock_center_right.png" class="parallax rock_center_right" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/rock_center_left.png" class="parallax rock_center_left" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/cloud_center_rocks.png" class="parallax cloud_center_rocks" data-speedx="0.22"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/center_fog.png" class="parallax center_fog" data-speedx="0.13" data-speedy="0.025"
+                data-rotatespeed="0.025">
+            <img src="images/coast_right_far.png" class="parallax coast_right_far" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/coast_right_medium.png" class="parallax coast_right_medium" data-speedx="0.28"
+                data-speedy="0.14" data-rotatespeed="0.14">
+            <img src="images/coast_right_close.png" class="parallax coast_right_close" data-speedx="0.25"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/middle_fog.png" class="parallax middle_fog" data-speedx="0.2" data-speedy="0.075"
+                data-rotatespeed="0.075">
+            <img src="images/left_rock_bottom.png" class="parallax left_rock_bottom" data-speedx="0.1" data-speedy="0.0025"
+                data-rotatespeed="0.0025">
+            <img src="images/front_fog.png" class="parallax front_fog" data-speedx="0.15" data-speedy="0.05"
+                data-rotatespeed="0.05">
+
+            <div class="atmospheric-overlay"></div>
+            <div class="vignette-overlay"></div>
+        </div>
+
+        <!-- Floating orbs -->
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="brand-text">PM</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <div class="about-hero-card glass-panel">
+                    <h1 class="about-hero-title">About Me</h1>
+                    <p class="about-hero-subtitle">Creative Developer & Digital Innovator</p>
+                    <p class="about-hero-description">
+                        I'm a passionate full-stack developer who thrives on turning complex challenges into elegant solutions. 
+                        With a keen eye for design and a deep understanding of modern technologies, I create digital experiences 
+                        that not only look stunning but perform flawlessly.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                        <a href="#journey" class="btn btn-secondary">My Journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Timeline Section -->
+        <section id="journey" class="journey-section">
+            <div class="section-container">
+                <h2 class="section-title">My Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2021</div>
+                            <h3 class="timeline-title">Started Programming</h3>
+                            <p class="timeline-description">
+                                Discovered my passion for coding through web development. Started with HTML, CSS, and JavaScript, 
+                                quickly falling in love with the endless possibilities of creating digital experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2022</div>
+                            <h3 class="timeline-title">Full-Stack Development</h3>
+                            <p class="timeline-description">
+                                Expanded into backend development with Node.js and Python. Learned database management 
+                                and API development, becoming comfortable with full-stack architectures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2023</div>
+                            <h3 class="timeline-title">Modern Frameworks</h3>
+                            <p class="timeline-description">
+                                Mastered React, Vue.js, and modern development workflows. Started focusing on user experience 
+                                design and advanced frontend architectures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content glass-panel">
+                            <div class="timeline-date">2024</div>
+                            <h3 class="timeline-title">Digital Innovation</h3>
+                            <p class="timeline-description">
+                                Currently exploring cutting-edge technologies like AI integration, 3D web experiences, 
+                                and advanced animation systems to push the boundaries of web development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="section-container">
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card glass-panel">
+                    <div class="expertise-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Creating stunning, responsive user interfaces with modern frameworks like React, Vue.js, and advanced CSS techniques.</p>
+                </div>
+
+                <div class="expertise-card glass-panel">
+                    <div class="expertise-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Architecture</h3>
+                    <p>Building scalable server-side applications with Node.js, Python, and robust database design.</p>
+                </div>
+
+                <div class="expertise-card glass-panel">
+                    <div class="expertise-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Crafting intuitive user experiences with attention to detail, accessibility, and modern design principles.</p>
+                </div>
+
+                <div class="expertise-card glass-panel">
+                    <div class="expertise-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <p>Developing cross-platform mobile applications with React Native and progressive web app technologies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Section -->
+        <section class="section-container">
+            <div class="personal-section glass-panel">
+                <div class="personal-content">
+                    <h2 class="section-title">Beyond The Code</h2>
+                    <p style="color: var(--text-secondary); font-size: 18px; line-height: 1.7; max-width: 600px; margin: 0 auto 48px;">
+                        When I'm not coding, I'm exploring new technologies, contributing to open-source projects, 
+                        and staying up-to-date with the latest trends in web development. I believe in continuous 
+                        learning and pushing the boundaries of what's possible.
+                    </p>
+
+                    <div class="fun-facts">
+                        <div class="fact-item">
+                            <span class="fact-number">500+</span>
+                            <div class="fact-label">Commits This Year</div>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">15+</span>
+                            <div class="fact-label">Technologies Mastered</div>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">3+</span>
+                            <div class="fact-label">Years of Experience</div>
+                        </div>
+                        <div class="fact-item">
+                            <span class="fact-number">∞</span>
+                            <div class="fact-label">Passion for Learning</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Plazma Mamba. All rights reserved.</p>
+                <p>Made with ❤️ and digital magic</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="app.js" defer></script>
+</body>
+
+</html>

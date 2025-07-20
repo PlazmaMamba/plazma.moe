@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Plazma Mamba</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-hero-content {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .contact-hero-card {
+            padding: 80px 60px;
+            animation: slideUp 1s var(--transition-spring) 0.5s both;
+        }
+
+        .contact-hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .contact-hero-description {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .enhanced-contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 80px;
+        }
+
+        .enhanced-contact-info {
+            padding: 60px 40px;
+        }
+
+        .contact-intro {
+            margin-bottom: 48px;
+        }
+
+        .contact-intro h3 {
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .contact-intro p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .enhanced-contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .enhanced-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .enhanced-contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-info h4 {
+            color: var(--text-primary);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-info span {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .enhanced-social-section {
+            margin-top: 48px;
+        }
+
+        .enhanced-social-section h4 {
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .enhanced-social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .enhanced-social-link {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .enhanced-social-link:hover {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .enhanced-contact-form {
+            padding: 60px 40px;
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .form-intro h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .form-intro p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .enhanced-form-group {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .enhanced-form-input,
+        .enhanced-form-textarea {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(10px);
+        }
+
+        .enhanced-form-input:focus,
+        .enhanced-form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .enhanced-form-label {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: var(--text-muted);
+            font-size: 16px;
+            transition: all var(--transition-fast);
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent 40%, var(--primary-bg) 40%);
+        }
+
+        .enhanced-form-input:focus + .enhanced-form-label,
+        .enhanced-form-input:valid + .enhanced-form-label,
+        .enhanced-form-textarea:focus + .enhanced-form-label,
+        .enhanced-form-textarea:valid + .enhanced-form-label {
+            top: -12px;
+            left: 16px;
+            font-size: 14px;
+            color: var(--primary-color);
+            background: var(--primary-bg);
+            padding: 0 8px;
+        }
+
+        .enhanced-form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .enhanced-submit-btn {
+            padding: 16px 32px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enhanced-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .enhanced-submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .enhanced-submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .enhanced-submit-btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .form-reset-btn {
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-reset-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-success-message,
+        .contact-error-message {
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-top: 24px;
+            text-align: center;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-smooth);
+        }
+
+        .contact-success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .contact-error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .contact-success-message.show,
+        .contact-error-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .availability-section {
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .availability-card {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .availability-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            background: rgba(34, 197, 94, 0.2);
+            border-radius: 25px;
+            color: #22c55e;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .availability-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .availability-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero-card {
+                padding: 60px 40px;
+            }
+
+            .contact-hero-title {
+                font-size: 36px;
+            }
+
+            .enhanced-contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .enhanced-contact-info,
+            .enhanced-contact-form {
+                padding: 40px 32px;
+            }
+
+            .enhanced-social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .availability-card {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-overlay">
+        <div class="fog"></div>
+        <div class="fog" style="animation-delay: -2.5s; opacity: 0.5;"></div>
+        <div class="fog" style="animation-delay: -1s; transform: scale(0.8); opacity: 0.3;"></div>
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="loading-content">
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Parallax Background -->
+        <div class="parallax-background">
+            <img src="images/background.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax bg-img">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 100%;">
+            <img src="images/background.png" class="bg-img" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                style="left: 200%;">
+
+            <img src="images/triangle_cliff.png" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
+                class="parallax triangle_cliff">
+            <img src="images/distant_island.png" class="parallax distant_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_island.png" class="parallax far_island" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_hill.png" class="parallax distant_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/distant_sub_hill.png" class="parallax distant_sub_hill" data-speedx="0.27" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/far_fog.png" class="parallax far_fog" data-speedx="0.25" data-speedy="0.13"
+                data-rotatespeed="0.13">
+            <img src="images/far_left_sub_cliff.png" class="parallax far_left_sub_cliff" data-speedx="0.26"
+                data-speedy="0.11" data-rotatespeed="0.11">
+            <img src="images/far_left_cliff.png" class="parallax far_left_cliff" data-speedx="0.23" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/left_fog.png" class="parallax left_fog" data-speedx="0.1" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/right_cliff.png" class="parallax right_cliff" data-speedx="0.25" data-speedy="0.125"
+                data-rotatespeed="0.125">
+            <img src="images/right_fog.png" class="parallax right_fog" data-speedx="0.19" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/coast_right_fartest.png" class="parallax coast_right_fartest" data-speedx="0.33"
+                data-speedy="0.165" data-rotatespeed="0.165">
+            <img src="images/left_cliff.png" class="parallax left_cliff" data-speedx="0.25" data-speedy="0.05"
+                data-rotatespeed="0.05">
+            <img src="images/rock_center_right.png" class="parallax rock_center_right" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/rock_center_left.png" class="parallax rock_center_left" data-speedx="0.2" data-speedy="0.1"
+                data-rotatespeed="0.1">
+            <img src="images/cloud_center_rocks.png" class="parallax cloud_center_rocks" data-speedx="0.22"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/center_fog.png" class="parallax center_fog" data-speedx="0.13" data-speedy="0.025"
+                data-rotatespeed="0.025">
+            <img src="images/coast_right_far.png" class="parallax coast_right_far" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15">
+            <img src="images/coast_right_medium.png" class="parallax coast_right_medium" data-speedx="0.28"
+                data-speedy="0.14" data-rotatespeed="0.14">
+            <img src="images/coast_right_close.png" class="parallax coast_right_close" data-speedx="0.25"
+                data-speedy="0.125" data-rotatespeed="0.125">
+            <img src="images/middle_fog.png" class="parallax middle_fog" data-speedx="0.2" data-speedy="0.075"
+                data-rotatespeed="0.075">
+            <img src="images/left_rock_bottom.png" class="parallax left_rock_bottom" data-speedx="0.1" data-speedy="0.0025"
+                data-rotatespeed="0.0025">
+            <img src="images/front_fog.png" class="parallax front_fog" data-speedx="0.15" data-speedy="0.05"
+                data-rotatespeed="0.05">
+
+            <div class="atmospheric-overlay"></div>
+            <div class="vignette-overlay"></div>
+        </div>
+
+        <!-- Floating orbs -->
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="brand-text">PM</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="contact-hero-content">
+                <div class="contact-hero-card glass-panel">
+                    <h1 class="contact-hero-title">Let's Connect</h1>
+                    <p class="contact-hero-subtitle">Get in Touch & Start a Conversation</p>
+                    <p class="contact-hero-description">
+                        I'm always excited to discuss new opportunities, collaborate on interesting projects, 
+                        or simply chat about technology and development. Let's create something amazing together!
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact-form" class="btn btn-primary">Send Message</a>
+                        <a href="#contact-info" class="btn btn-secondary">Contact Info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Contact Content -->
+        <section class="section-container" id="contact-info">
+            <div class="enhanced-contact-content">
+                <!-- Contact Information -->
+                <div class="enhanced-contact-info glass-panel">
+                    <div class="contact-intro">
+                        <h3>Get in Touch</h3>
+                        <p>Ready to bring your ideas to life? I'm here to help you create exceptional digital experiences 
+                        that make a lasting impact. Let's discuss your project!</p>
+                    </div>
+
+                    <div class="enhanced-contact-items">
+                        <div class="enhanced-contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-info">
+                                <h4>Email</h4>
+                                <span>plazma.mamba@email.com</span>
+                            </div>
+                        </div>
+
+                        <div class="enhanced-contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-item-info">
+                                <h4>Phone</h4>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+
+                        <div class="enhanced-contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-item-info">
+                                <h4>Location</h4>
+                                <span>Digital Realm, Worldwide</span>
+                            </div>
+                        </div>
+
+                        <div class="enhanced-contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-item-info">
+                                <h4>Response Time</h4>
+                                <span>Within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="enhanced-social-section">
+                        <h4>Connect on Social Media</h4>
+                        <div class="enhanced-social-links">
+                            <a href="#" class="enhanced-social-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="enhanced-social-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#" class="enhanced-social-link">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="enhanced-social-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Contact Form -->
+                <div class="enhanced-contact-form glass-panel" id="contact-form">
+                    <div class="form-intro">
+                        <h3>Send a Message</h3>
+                        <p>Fill out the form below and I'll get back to you as soon as possible. 
+                        Looking forward to hearing from you!</p>
+                    </div>
+
+                    <form id="enhanced-contact-form" class="contact-form">
+                        <div class="enhanced-form-group">
+                            <input type="text" id="name" name="name" class="enhanced-form-input" required>
+                            <label for="name" class="enhanced-form-label">Your Name</label>
+                        </div>
+
+                        <div class="enhanced-form-group">
+                            <input type="email" id="email" name="email" class="enhanced-form-input" required>
+                            <label for="email" class="enhanced-form-label">Email Address</label>
+                        </div>
+
+                        <div class="enhanced-form-group">
+                            <input type="text" id="subject" name="subject" class="enhanced-form-input" required>
+                            <label for="subject" class="enhanced-form-label">Subject</label>
+                        </div>
+
+                        <div class="enhanced-form-group">
+                            <textarea id="message" name="message" class="enhanced-form-textarea" rows="5" required></textarea>
+                            <label for="message" class="enhanced-form-label">Your Message</label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="enhanced-submit-btn">
+                                <span>Send Message</span>
+                            </button>
+                            <button type="reset" class="form-reset-btn">
+                                Clear Form
+                            </button>
+                        </div>
+
+                        <div class="contact-success-message" id="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            Message sent successfully! I'll get back to you soon.
+                        </div>
+
+                        <div class="contact-error-message" id="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            There was an error sending your message. Please try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability Section -->
+        <section class="availability-section section-container">
+            <div class="availability-card glass-panel">
+                <div class="availability-status">
+                    <div class="availability-dot"></div>
+                    <span>Available for New Projects</span>
+                </div>
+                <h3 class="availability-title">Ready to Work Together</h3>
+                <p class="availability-description">
+                    I'm currently accepting new clients and exciting project opportunities. Whether you need 
+                    a complete web application, mobile app, or just want to discuss your ideas, I'm here to help 
+                    bring your vision to life with cutting-edge technology and creative solutions.
+                </p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Plazma Mamba. All rights reserved.</p>
+                <p>Made with ❤️ and digital magic</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="app.js" defer></script>
+    
+    <script>
+        // Enhanced contact form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('enhanced-contact-form');
+            const submitBtn = document.querySelector('.enhanced-submit-btn');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const formInputs = document.querySelectorAll('.enhanced-form-input, .enhanced-form-textarea');
+
+            // Form submission handling
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    const originalText = submitBtn.querySelector('span').textContent;
+                    
+                    // Animate button
+                    gsap.to(submitBtn, {
+                        scale: 0.95,
+                        duration: 0.1,
+                        yoyo: true,
+                        repeat: 1
+                    });
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.querySelector('span').textContent = 'Sending...';
+                    
+                    // Hide any previous messages
+                    successMessage.classList.remove('show');
+                    errorMessage.classList.remove('show');
+                    
+                    try {
+                        // Simulate form submission
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+                        
+                        // Show success message
+                        successMessage.classList.add('show');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset input labels
+                        formInputs.forEach(input => {
+                            const label = input.nextElementSibling;
+                            if (label && label.classList.contains('enhanced-form-label')) {
+                                // Force label to return to original position
+                                input.value = '';
+                            }
+                        });
+                        
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                        }, 5000);
+                        
+                    } catch (error) {
+                        // Show error message
+                        errorMessage.classList.add('show');
+                        
+                        setTimeout(() => {
+                            errorMessage.classList.remove('show');
+                        }, 5000);
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.querySelector('span').textContent = originalText;
+                    }
+                });
+            }
+
+            // Contact item click effects
+            const contactItems = document.querySelectorAll('.enhanced-contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const info = item.querySelector('.contact-item-info span').textContent;
+                    const isEmail = info.includes('@');
+                    const isPhone = info.includes('+') || info.includes('(');
+                    
+                    if (isEmail) {
+                        window.location.href = `mailto:${info}`;
+                    } else if (isPhone) {
+                        window.location.href = `tel:${info.replace(/\D/g, '')}`;
+                    }
+                    
+                    // Visual feedback
+                    gsap.to(item, {
+                        scale: 0.98,
+                        duration: 0.1,
+                        yoyo: true,
+                        repeat: 1
+                    });
+                });
+            });
+
+            // Social link hover effects
+            const socialLinks = document.querySelectorAll('.enhanced-social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    gsap.to(link, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    gsap.to(link, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Form input animations
+            formInputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    gsap.to(input, {
+                        borderColor: 'var(--primary-color)',
+                        duration: 0.3
+                    });
+                });
+                
+                input.addEventListener('blur', () => {
+                    if (!input.value) {
+                        gsap.to(input, {
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            duration: 0.3
+                        });
+                    }
+                });
+            });
+
+            // Smooth scrolling for contact links
+            const contactLinks = document.querySelectorAll('a[href^="#"]');
+            contactLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: {
+                                y: targetSection,
+                                offsetY: 80
+                            },
+                            ease: 'power3.inOut'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
