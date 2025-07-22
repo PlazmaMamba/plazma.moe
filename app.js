@@ -135,17 +135,7 @@ window.addEventListener("mousemove", (e) => {
     lastMouseX = e.clientX;
     lastMouseY = e.clientY;
     
-    // Throttle mouse events on low-perf devices
-    if (deviceConfig.isLowPerf) {
-        if (!mouseThrottle) {
-            mouseThrottle = setTimeout(() => {
-                handleMouseMove(lastMouseX, lastMouseY);
-                mouseThrottle = null;
-            }, 50); // 20fps max on low-perf
-        }
-    } else {
-        handleMouseMove(e.clientX, e.clientY);
-    }
+    handleMouseMove(e.clientX, e.clientY);
 });
 
 function handleMouseMove(clientX, clientY) {
