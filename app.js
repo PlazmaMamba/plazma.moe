@@ -73,7 +73,7 @@ function initializeParallax() {
         el.classList.remove('loading');
     });
 
-    
+
     isInitialized = true;
 }
 
@@ -95,11 +95,11 @@ window.addEventListener('resize', () => {
         gsap.set(".circular-mask", { display: "block" });
         isInitialized = false; // Disable mouse interactions
     }
-    
+
     resizeTimeout = setTimeout(() => {
         // Reset timeout reference
         resizeTimeout = null;
-        
+
         // Update movement limits
         movementLimits = getMovementLimits();
         initializeParallax();
@@ -175,3 +175,41 @@ function getMovementLimits() {
         };
     }
 }
+
+document.addEventListener('mousemove', function (e) {
+    const navbar = document.querySelector('.navbar');
+    const rect = navbar.getBoundingClientRect();
+
+    // Calculate mouse position relative to navbar
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    // Calculate distance from center
+    const distance = Math.sqrt(
+        Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)
+    );
+
+    // Convert distance to light intensity
+    const maxDistance = 300;
+    let intensity = Math.max(0, 1 - (distance / maxDistance));
+
+    // Boost if mouse is directly over navbar
+    if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        intensity = Math.min(1, intensity * 1.5);
+    }
+
+    // Update CSS variables
+    navbar.style.setProperty('--global-mouse-x', `${x}px`);
+    navbar.style.setProperty('--global-mouse-y', `${y}px`);
+    navbar.style.setProperty('--light-intensity', intensity);
+});
+
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+});
