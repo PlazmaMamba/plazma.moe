@@ -13,10 +13,7 @@ function detectDevice() {
     deviceConfig.isTablet = width > 768 && width <= 1024;
     
     // Check for low performance indicators
-    deviceConfig.isLowPerf = deviceConfig.isMobile || 
-                            deviceConfig.isTablet || 
-                            navigator.hardwareConcurrency <= 4 ||
-                            !window.matchMedia('(pointer: fine)').matches;
+    deviceConfig.isLowPerf = deviceConfig.isMobile;
     
     // Set max images based on device
     if (deviceConfig.isMobile) {
