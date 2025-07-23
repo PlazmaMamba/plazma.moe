@@ -49,13 +49,6 @@ main {
     object-fit: cover;
     width: 115vw;
     height: 115vh;
-    /* Add will-change for better performance */
-    will-change: transform;
-}
-
-/* Disable transitions during movement for better performance */
-.parallax.moving {
-    transition: none;
 }
 
 .bg-img {
@@ -212,8 +205,6 @@ main {
     height: 100vh;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
-    /* Add smooth scrolling */
-    scroll-behavior: smooth;
 }
 
 .snap-section {
@@ -226,12 +217,13 @@ main {
 .navbar {
     position: fixed;
     top: 20px;
+    /* FIXED: Added margin from top */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 700px;
     background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: brightness(1.05) blur(20px);
+    backdrop-filter: brightness(1.05) blur(20px) url(#displacementFilter);
     -webkit-backdrop-filter: brightness(1.05) blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
@@ -245,14 +237,6 @@ main {
     --global-mouse-x: -300px;
     --global-mouse-y: -300px;
     --light-intensity: 0;
-}
-
-/* Disable filter on mobile for performance */
-@media (max-width: 768px) {
-    .navbar {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
 }
 
 .navbar::before {
@@ -366,7 +350,7 @@ main {
     width: 100%;
     height: 100vh;
     background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: brightness(1.05) blur(20px);
+    backdrop-filter: brightness(1.05) blur(20px) url(#displacementFilter);
     -webkit-backdrop-filter: brightness(1.05) blur(20px);
 
     display: flex;
@@ -380,6 +364,7 @@ main {
     transition: all 0.3s ease;
 }
 
+/* FIXED: Added active state for mobile menu */
 .mobile-menu.active {
     opacity: 1;
     visibility: visible;
@@ -399,36 +384,6 @@ main {
     color: #8c9972;
     background: rgba(140, 153, 114, 0.2);
     transform: scale(1.1);
-}
-
-/* Performance optimizations for mobile */
-@media (max-width: 768px) {
-    /* Disable parallax animations on mobile */
-    .parallax {
-        transition: none !important;
-        will-change: auto !important;
-    }
-    
-    /* Simpler transforms for mobile */
-    .parallax:not(.text) {
-        transform: translate(-50%, -50%) !important;
-    }
-    
-    /* Hide non-essential images on mobile */
-    .parallax:not(.bg-img):not(.text):not(.center_fog):not(.front_fog) {
-        display: none !important;
-    }
-    
-    /* Keep buffer for parallax but optimize for mobile */
-    .bg-img {
-        width: 110vw;
-        height: 110vh;
-    }
-    
-    /* Disable vignette on mobile for performance */
-    .vignette {
-        display: none;
-    }
 }
 
 /* Responsive breakpoints */
@@ -466,6 +421,16 @@ main {
         font-size: 4.1rem;
         line-height: 1.1;
     }
+    
+    /* Disable parallax transition on mobile for better performance */
+    .parallax {
+        transition: none;
+    }
+    
+    /* Remove mouse-based effects on mobile */
+    .navbar::after {
+        display: none;
+    }
 }
 
 @media (max-width: 725px) {
@@ -498,26 +463,5 @@ main {
 
     .logo {
         font-size: 1.2rem;
-    }
-    
-    /* Even smaller loading animation on small mobile */
-    .loading-bar {
-        width: 150px;
-        height: 3px;
-    }
-}
-
-/* Reduce motion for accessibility and performance */
-@media (prefers-reduced-motion: reduce) {
-    .parallax {
-        transition: none !important;
-    }
-    
-    .loading-progress,
-    .navbar::after,
-    .nav-menu a,
-    .mobile-menu,
-    .mobile-menu a {
-        transition: none !important;
     }
 }
