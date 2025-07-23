@@ -201,8 +201,6 @@ function update(cursorPosition) {
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial mobile state
     wasMobile = isMobile();
-    // Start the boot animation on page load
-    bootAnim();
 });
 
 function getMovementLimits() {
@@ -266,4 +264,94 @@ const mobileMenu = document.querySelector('.mobile-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
+});
+
+// Smooth scrolling for navigation links
+function initNavigation() {
+    // Get all navigation links (both desktop and mobile)
+    const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
+    const snapContainer = document.querySelector('.snap-container');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get the target section ID from the href
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection && snapContainer) {
+                // Calculate the scroll position
+                const sectionIndex = Array.from(document.querySelectorAll('.snap-section')).indexOf(targetSection);
+                const scrollPosition = sectionIndex * window.innerHeight;
+                
+                // Smooth scroll to the section
+                snapContainer.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+                
+                // Update active state
+                updateActiveNavLink(targetId);
+            }
+        });
+    });
+    
+    // Update active link on scroll
+    snapContainer.addEventListener('scroll', () => {
+        updateActiveNavOnScroll();
+    });
+}
+
+// Update active navigation link
+function updateActiveNavLink(activeId) {
+    const allLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
+    
+    allLinks.forEach(link => {
+        if (link.getAttribute('href') === activeId) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+// Update active link based on scroll position
+function updateActiveNavOnScroll() {
+    const snapContainer = document.querySelector('.snap-container');
+    const sections = document.querySelectorAll('.snap-section');
+    const scrollPosition = snapContainer.scrollTop;
+    const windowHeight = window.innerHeight;
+    
+    // Determine which section is currently in view
+    const currentSectionIndex = Math.round(scrollPosition / windowHeight);
+    const currentSection = sections[currentSectionIndex];
+    
+    if (currentSection) {
+        // Determine the section ID
+        let sectionId = '#home'; // Default to home
+        
+        if (currentSection.classList.contains('content-section')) {
+            const heading = currentSection.querySelector('h2');
+            if (heading) {
+                sectionId = '#' + heading.textContent.toLowerCase();
+            }
+        }
+        
+        updateActiveNavLink(sectionId);
+    }
+}
+
+// Initialize navigation when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Start the boot animation on page load
+    bootAnim();
+    // Initialize navigation
+    initNavigation();
 });

@@ -70,10 +70,14 @@
     </div>
 
     <div class="snap-container">
-        <main class="snap-section">
+        <main id="home" class="snap-section">
             <!-- Background layers (furthest to closest) -->
             <img src="images/background.webp" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
                 class="parallax bg-img">
+            <img src="images/background.webp" class=" bg-img" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15" style="left: 100%;">
+            <img src="images/background.webp" class=" bg-img" data-speedx="0.3" data-speedy="0.15"
+                data-rotatespeed="0.15" style="left: 200%;">
 
             <img src="images/triangle_cliff.webp" data-speedx="0.3" data-speedy="0.15" data-rotatespeed="0.15"
                 class="parallax triangle_cliff">
@@ -131,12 +135,12 @@
             <div class="vignette"></div>
         </main>
         
-        <section class="snap-section content-section">
+        <section id="about" class="snap-section content-section">
             <h2>About</h2>
             <p>This is the second section that appears when you scroll down. Placeholder Text go brr</p>
         </section>
 
-        <section class="snap-section content-section">
+        <section id="projects" class="snap-section content-section">
             <h2>Projects</h2>
             <p>This is the third section that appears when you scroll down. Placeholder Text go brr</p>
         </section>
